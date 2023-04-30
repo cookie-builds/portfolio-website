@@ -44,7 +44,7 @@ const router = createBrowserRouter([
 
 function App (): JSX.Element {
   return (
-    <AppContainer className="App" style={{ background: 'linear-gradient(0deg, rgba(170,170,170,1) 0%, rgba(221,221,221,1) 100%)' }}>
+    <AppContainer className="App">
       <RouterProvider router={router} />
     </AppContainer>
   );
