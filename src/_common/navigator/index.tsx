@@ -1,5 +1,5 @@
 import React from 'react';
-import { scaleRotate as Menu } from 'react-burger-menu';
+import { HiMenuAlt3 } from 'react-icons/hi';
 import { IoMdClose } from 'react-icons/io';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -20,7 +20,11 @@ const MobileModalContainer = styled.div`
   background-color: ${color.lightGray}97;
 `;
 
-const CloseButton = styled.button`
+const HamburgerButton = styled.button`
+  display: flex;
+  ${mediaQuery.medium`
+    display: none;
+  `}
   background-color: ${color.transparent};
   border: none;
   position: absolute;
@@ -42,13 +46,16 @@ const MobileLink = styled(Link)<{active?: string}>`
   width: 100%;
   padding: 1.5rem 0;
   color: ${color.darkText};
-  background-color: ${p => p.active ? color.white : color.transparent}50;
+  background-color: ${p => p.active ? color.darkGray : color.transparent}50;
+
+  &:hover {
+    background-color: ${p => p.active ? color.darkGray : color.mediumGray}50;
+  }
 `;
 
 const MobileModal = ({ selected, setOpen, handleLinkClick }: {selected: string, setOpen: React.Dispatch<React.SetStateAction<boolean>>, handleLinkClick: (link: string) => void}) => {
   return (
     <MobileModalContainer>
-      <CloseButton onClick={() => setOpen(false)}><IoMdClose color={color.darkText} size='2rem' /></CloseButton>
       <MobileLinks>
         {['Home', 'About', 'Services', 'Projects', 'Contact'].map((link) => 
         {
@@ -69,6 +76,7 @@ const NavigationContainer = styled.div<{bg: string, text: string}>`
   transition: background-color 0.2s, color 0.2s;
   margin: 0;
   padding: 0;
+  z-index: 1000;
 `;
 
 const transition = css`
@@ -143,17 +151,13 @@ const LogoLink = styled(NavLink)<{textColor: string}>`
 `;
 
 const NavLinkContainer = styled.div`
-  display: none;
-
   gap: 2rem;
   ${textSize.p}
-  vertical-align: bottom; 
-
+  display: none;
   ${mediaQuery.medium`
     display: flex;
   `}
 `;
-
 
 const Navigator = () => {
   const location = useLocation();
@@ -206,6 +210,10 @@ const Navigator = () => {
               Contact
             </ContactNavLink>
           </NavLinkContainer>
+          <HamburgerButton onClick={() => setModalOpen(!modalOpen)}>
+            {modalOpen && <IoMdClose color={color.darkText} size='2rem' />}
+            {!modalOpen && <HiMenuAlt3 color={textColor} size='2rem' />}
+          </HamburgerButton>
         </NavigationBar>
       </NavigationContainer>
     </>
