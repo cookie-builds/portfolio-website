@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { fontWeight } from '.';
+import { fontWeight } from './style';
 
 export function makeTextStyle(
   fw: any = fontWeight.book,

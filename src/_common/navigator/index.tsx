@@ -31,7 +31,7 @@ const HamburgerButton = styled.button`
   right: 0rem;
   top: 0rem;
   cursor: pointer;
-  padding: 1.25rem;
+  padding: 1rem 0.5rem 1rem 1rem;
 `;
 
 const MobileLinks = styled.div`
@@ -45,11 +45,11 @@ const MobileLink = styled(Link)<{active?: string}>`
   ${textSize.p}
   width: 100%;
   padding: 1.5rem 0;
-  color: ${color.darkText};
-  background-color: ${p => p.active ? color.darkGray : color.transparent}50;
+  color: ${p => p.active ? color.lightText : color.darkText};
+  background-color: ${p => p.active ? color.darkGray : color.transparent}99;
 
   &:hover {
-    background-color: ${p => p.active ? color.darkGray : color.mediumGray}50;
+    background-color: ${p => p.active ? color.darkGray : color.mediumGray}99;
   }
 `;
 
@@ -104,6 +104,7 @@ const NavLink = styled(Link)<{active?: string, textColor: string}>`
   position: relative;
   color: ${p => p.active ? color.primary : p.textColor};
   transition: color 0.2s;
+  align-items: center;
   /*font-weight: ${p => p.active ? fontWeight.bold : fontWeight.medium};*/
   &:before {
     display: block;
@@ -111,12 +112,16 @@ const NavLink = styled(Link)<{active?: string, textColor: string}>`
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%) translateY(0.5rem);
+    transform: translateX(-50%) translateY(-0.5rem);
     width: ${p => p.active ? '100%' : '0'};
     height: 3px;
     border-radius: 1.5px;
     background-color: ${color.primary};
     transition: width 0.1s;
+
+    ${mediaQuery.large`
+      transform: translateX(-50%) translateY(0.5rem);
+    `}
   }
   &:hover {
     &:before {
@@ -132,8 +137,12 @@ const ContactNavLink = styled(NavLink)<{active?: string, textColor: string}>`
 
 const NavigationBar = styled(StandardContainer)`
   display: flex;
-  padding: 1.5rem;
-  margin: 0 auto;
+  margin: auto;
+  padding: 0;
+
+  ${mediaQuery.large`
+    padding: 1.5rem 0;
+  `}
 `;
 
 const LogoLink = styled(NavLink)<{textColor: string}>`
@@ -141,7 +150,13 @@ const LogoLink = styled(NavLink)<{textColor: string}>`
   font-family: ${fontFamily.special};
   text-align: left;
   margin-right: auto;
+  padding: 1rem 0rem 1rem 0.5rem;
   color: ${p => p.textColor};
+  line-height: 2rem;
+
+  ${mediaQuery.large`
+    padding: 0;
+  `}
   ${LinkBottomLine} {
     border: 2px ${color.primary} solid;
   }
@@ -164,7 +179,7 @@ const Navigator = () => {
   const [bgColor, setBgColor] = React.useState(color.transparent);
   const [textColor, setTextColor] = React.useState(color.darkText);
   const [selectedLink, setSelectedLink] = React.useState(location.pathname.substring(1));
-  const [modalOpen, setModalOpen] = React.useState(true);
+  const [modalOpen, setModalOpen] = React.useState(false);
 
   const handleScroll = React.useCallback(() => {
     if(window.scrollY < COLOR_CHANGE_CUTOFF) {
