@@ -1,29 +1,16 @@
 import { css } from 'styled-components';
 
 export const color = {
-  text: '',
-  white: '',
-  black: '',
-  medium: '',
-  light: '',
+  lightText: '#DDDDDD',
+  darkText: '#222222',
+  white: '#FFFFFF',
+  black: '#000000',
   transparent: 'transparent',
-  error: '',
-  success: '',
-  warning: '',
-  default: {
-    primary: '',
-    hover: '',
-    focus: '',
-    active: '',
-    disabled: '',
-  },
-  accent: {
-    accent: '',
-    hover: '',
-    focus: '',
-    active: '',
-    disabled: '',
-  },
+  primary: '#00CDF2',
+  lightGray: '#DDDDDD',
+  mediumGray: '#AAAAAA',
+  darkGray: '#222222',
+  backgroundGradient: 'linear-gradient(0deg, rgba(170,170,170,1) 0%, rgba(221,221,221,1) 100%)',
 };
 
 export const screenSize = {
@@ -73,7 +60,6 @@ export const fontWeight = {
 export const textSize = {
   p: () => css`
     font-weight: ${fontWeight.book};
-    line-height: 1;
     font-size: 1rem;
     
     ${mediaQuery.small`
@@ -145,6 +131,8 @@ export const textSize = {
   `,
 };
 
-export const spacing = { xs: '0.25rem', sm: '0.5rem', md: '1rem', lg: '1.5rem', xl: '2rem' };
+export const fontFamily = { regular: 'inherit', special: 'Roboto Mono' };
+
+export const spacing = { xs: '0.25rem', sm: '0.5rem', md: '1rem', lg: '1.5rem', xl: '2rem', xxl: '4rem', huge: '8rem' };
 
 export const borderWidth = { sm: '1px', md: '2px' };

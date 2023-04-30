@@ -1,31 +1,52 @@
 import './App.css';
 
 import * as React from 'react';
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import styled from 'styled-components';
 
-import NotFound from './modules/NotFound.tsx';
+import Home from './modules/home';
+import NotFound from './modules/notFound';
 import Root from './Root';
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <>
-      <Route path='/' element={<Root />} errorElement={<NotFound />} />
-    </>
-  )
-);
+const AppContainer = styled.div`
+  min-height: 100vh;
+`;
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Root />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: '',
+        element: <Home />,
+      },
+      {
+        path: 'about',
+        element: <></>,
+      },
+      {
+        path: 'services',
+        element: <></>,
+      },
+      {
+        path: 'projects',
+        element: <></>,
+      },
+      {
+        path: 'contact',
+        element: <></>,
+      },
+    ],
+  },
+]);
 
 function App (): JSX.Element {
   return (
-    <div className="App">
+    <AppContainer className="App" style={{ background: 'linear-gradient(0deg, rgba(170,170,170,1) 0%, rgba(221,221,221,1) 100%)' }}>
       <RouterProvider router={router} />
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-      </div>
-    </div>
+    </AppContainer>
   );
 }
 
