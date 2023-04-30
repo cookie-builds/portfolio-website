@@ -24,20 +24,23 @@ const LogoLinks = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
+  transition: 0.1s;
 `;
 
 const EmailLink = styled.a`
   color: ${color.darkGray};
   font-weight: ${fontWeight.medium};
   top: -105%;
-  left: -5.4rem;
+  left: -5.475rem;
   position: absolute;
   transform: rotate(90deg);
   width: min-content;
   cursor: pointer;
+  transition: 0.1s;
 
   &:hover {
     transform: scale(1.05) rotate(90deg) translateX(-0.4rem) ;
+  left: -5.5rem;
   }
 `;
 
@@ -70,7 +73,7 @@ export const MobileLinks = () => {
       </LeftLinks>
       <RightLinks>
         <EmailLink href='mailto:jonathancouck@outlook.com'>
-        jonathancouck@outlook.com
+          jonathancouck@outlook.com
         </EmailLink>
         <Line />
       </RightLinks>
@@ -80,8 +83,9 @@ export const MobileLinks = () => {
 
 
 const FooterDiv = styled.footer`
-  margin: 0 auto;
   padding-bottom: 5rem;
+  flex-grow: 1;
+  display: flex;
 `;
 
 const FooterContainer = styled(StandardContainer)`
@@ -89,7 +93,7 @@ const FooterContainer = styled(StandardContainer)`
   flex-direction: column;
   align-items: start;
   padding-top: 5rem;
-  margin: 0 auto;
+  margin: auto auto 0 auto;
   width: 70%;
   ${mediaQuery.large`
     width: 60%;
