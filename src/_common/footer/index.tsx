@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiFillFacebook, AiFillGithub, AiFillInstagram,AiFillLinkedin } from 'react-icons/ai';
+import { AiOutlineFacebook, AiOutlineGithub, AiOutlineInstagram, AiOutlineLinkedin } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -64,10 +64,10 @@ export const MobileLinks = () => {
     <>
       <LeftLinks>
         <LogoLinks>
-          <IconLink href='https://github.com/cookie-builds' target='_blank'><AiFillGithub size='1.75rem' color={color.darkGray} /></IconLink>
-          <IconLink href='https://www.linkedin.com/in/jonathancouck/' target='_blank'><AiFillLinkedin size='1.75rem' color={color.darkGray} /></IconLink>
-          <IconLink href='https://www.facebook.com/Jonathan.Couck/' target='_blank'><AiFillFacebook size='1.75rem' color={color.darkGray} /></IconLink>
-          <IconLink href='https://www.instagram.com/jcouck/' target='_blank'><AiFillInstagram size='1.75rem' color={color.darkGray} /></IconLink>
+          <IconLink href='https://github.com/cookie-builds' target='_blank'><AiOutlineGithub size='1.75rem' color={color.darkGray} /></IconLink>
+          <IconLink href='https://www.linkedin.com/in/jonathancouck/' target='_blank'><AiOutlineLinkedin size='1.75rem' color={color.darkGray} /></IconLink>
+          <IconLink href='https://www.facebook.com/Jonathan.Couck/' target='_blank'><AiOutlineFacebook size='1.75rem' color={color.darkGray} /></IconLink>
+          <IconLink href='https://www.instagram.com/jcouck/' target='_blank'><AiOutlineInstagram size='1.75rem' color={color.darkGray} /></IconLink>
         </LogoLinks>
         <Line />
       </LeftLinks>

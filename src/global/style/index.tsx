@@ -49,6 +49,11 @@ export const mediaQuery = {
   `,
 };
 
+export const shadow = {
+  none: 'none',
+  medium: `0px 8px 22px 1px ${color.mediumGray}`,
+};
+
 export const fontWeight = {
   light: 300,
   book: 400,

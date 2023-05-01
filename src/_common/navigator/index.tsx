@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-import { color, fontFamily,fontWeight,mediaQuery,textSize } from '../../global/style/index';
+import { color, fontFamily,fontWeight,mediaQuery,shadow,textSize } from '../../global/style/index';
 import { StandardContainer } from '../components/standard';
 
 const COLOR_CHANGE_CUTOFF = 25;
@@ -17,7 +17,8 @@ const MobileModalContainer = styled.div`
   height: 100vh;
   z-index: 100;
   margin: auto;
-  background-color: ${color.lightGray}97;
+  background-color: ${color.lightGray};
+  opacity: 0.90;
 `;
 
 const HamburgerButton = styled.button`
@@ -38,7 +39,7 @@ const MobileLinks = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 5rem;
+  margin-top: 7.5rem;
 `;
 
 const MobileLink = styled(Link)<{active?: string}>`
@@ -53,24 +54,24 @@ const MobileLink = styled(Link)<{active?: string}>`
   }
 `;
 
-const MobileModal = ({ selected, setOpen, handleLinkClick }: {selected: string, setOpen: React.Dispatch<React.SetStateAction<boolean>>, handleLinkClick: (link: string) => void}) => {
+const MobileModal = ({ selected, handleLinkClick }: {selected: string, handleLinkClick: (link: string) => void}) => {
   return (
     <MobileModalContainer>
       <MobileLinks>
         {['Home', 'About', 'Services', 'Projects', 'Contact'].map((link) => 
-        {
-          return <MobileLink to={`/${link === 'Home' ? '' : link.toLowerCase()}`} key={link} onClick={() => handleLinkClick(link.toLowerCase())} active={selected === (link === 'Home' ? '' : link.toLowerCase()) ? 'true' : undefined}>
+          <MobileLink to={`/${link === 'Home' ? '' : link.toLowerCase()}`} key={link} onClick={() => handleLinkClick(link.toLowerCase())} active={selected === (link === 'Home' ? '' : link.toLowerCase()) ? 'true' : undefined}>
             {link}
-          </MobileLink>;
-        })}
+          </MobileLink>
+        )}
       </MobileLinks>
     </MobileModalContainer>
   );
 };
 
-const NavigationContainer = styled.div<{bg: string, text: string}>`
+const NavigationContainer = styled.div<{bg: string, text: string, shadow: string}>`
   position: fixed;
   background-color: ${p => p.bg};
+  box-shadow: ${p => p.shadow};
   color: ${p => p.text};
   width: 100vw;
   transition: background-color 0.2s, color 0.2s;
@@ -114,8 +115,8 @@ const NavLink = styled(Link)<{active?: string, textColor: string}>`
     left: 50%;
     transform: translateX(-50%) translateY(-0.5rem);
     width: ${p => p.active ? '100%' : '0'};
-    height: 3px;
-    border-radius: 1.5px;
+    height: 4px;
+    border-radius: 1px;
     background-color: ${color.primary};
     transition: width 0.1s;
 
@@ -132,14 +133,28 @@ const NavLink = styled(Link)<{active?: string, textColor: string}>`
 `;
 
 const ContactNavLink = styled(NavLink)<{active?: string, textColor: string}>`
-  
+  background-color: ${p => p.textColor === color.darkText ? color.darkGray : color.lightGray};
+  color: ${p => p.textColor === color.darkText ? color.lightText : color.darkText};
+  padding: 0.75rem 1.5rem;
+  border-radius: 10rem;
+  transition: 0.1s;
+  height: min-content;
+  margin: auto 0;
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:before {
+    display: none;
+  }
 `;
 
 const NavigationBar = styled(StandardContainer)`
   display: flex;
   margin: auto;
   padding: 0;
-
+  ${mediaQuery.medium`
+    padding: 0.5rem 0;
+  `}
   ${mediaQuery.large`
     padding: 1.5rem 0;
   `}
@@ -178,6 +193,7 @@ const Navigator = () => {
   const location = useLocation();
   const [bgColor, setBgColor] = React.useState(color.transparent);
   const [textColor, setTextColor] = React.useState(color.darkText);
+  const [boxShadow, setBoxShadow] = React.useState(shadow.none);
   const [selectedLink, setSelectedLink] = React.useState(location.pathname.substring(1));
   const [modalOpen, setModalOpen] = React.useState(false);
 
@@ -185,9 +201,11 @@ const Navigator = () => {
     if(window.scrollY < COLOR_CHANGE_CUTOFF) {
       setBgColor(color.transparent);
       setTextColor(color.darkText);
+      setBoxShadow(shadow.none);
     } else if(window.scrollY >= COLOR_CHANGE_CUTOFF) {
       setBgColor(color.darkGray);
       setTextColor(color.lightText);
+      setBoxShadow(shadow.medium);
     }
   }, []);
 
@@ -208,9 +226,9 @@ const Navigator = () => {
 
   return (
     <>
-      {modalOpen && <MobileModal setOpen={setModalOpen} selected={selectedLink} handleLinkClick={handleLinkClick} />}
+      {modalOpen && <MobileModal selected={selectedLink} handleLinkClick={handleLinkClick} />}
       
-      <NavigationContainer bg={bgColor} text={textColor}>
+      <NavigationContainer bg={bgColor} text={textColor} shadow={boxShadow}>
         <NavigationBar>
           <LogoLink to='' active={location.pathname === '/' ? 'true' : undefined} textColor={textColor} onClick={() => handleLinkClick('')}>
             JonathanCouck
@@ -226,7 +244,7 @@ const Navigator = () => {
             </ContactNavLink>
           </NavLinkContainer>
           <HamburgerButton onClick={() => setModalOpen(!modalOpen)}>
-            {modalOpen && <IoMdClose color={color.darkText} size='2rem' />}
+            {modalOpen && <IoMdClose color={textColor} size='2rem' />}
             {!modalOpen && <HiMenuAlt3 color={textColor} size='2rem' />}
           </HamburgerButton>
         </NavigationBar>
