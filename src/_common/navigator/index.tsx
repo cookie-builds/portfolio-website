@@ -18,7 +18,7 @@ const MobileModalContainer = styled.div`
   z-index: 100;
   margin: auto;
   background-color: ${color.lightGray};
-  opacity: 0.90;
+  opacity: 0.95;
 `;
 
 const HamburgerButton = styled.button`
@@ -165,11 +165,11 @@ const LogoLink = styled(NavLink)<{textColor: string}>`
   font-family: ${fontFamily.special};
   text-align: left;
   margin-right: auto;
-  padding: 1rem 0rem 1rem 0.5rem;
+  padding: 1rem 0rem 1rem 1rem;
   color: ${p => p.textColor};
   line-height: 2rem;
 
-  ${mediaQuery.large`
+  ${mediaQuery.medium`
     padding: 0;
   `}
   ${LinkBottomLine} {
@@ -231,7 +231,7 @@ const Navigator = () => {
       <NavigationContainer bg={bgColor} text={textColor} shadow={boxShadow}>
         <NavigationBar>
           <LogoLink to='' active={location.pathname === '/' ? 'true' : undefined} textColor={textColor} onClick={() => handleLinkClick('')}>
-            JonathanCouck
+            CookieBuilds
           </LogoLink>
           <NavLinkContainer>
             {['About', 'Services', 'Projects'].map((link) => 
@@ -239,7 +239,7 @@ const Navigator = () => {
                 {link}
               </NavLink>
             )}
-            <ContactNavLink to={'/Contact'} key='Contact' onClick={() => handleLinkClick('contact')} active={selectedLink === 'contact' ? 'true' : undefined} textColor={textColor}>
+            <ContactNavLink to={'/contact'} key='Contact' onClick={() => handleLinkClick('contact')} active={selectedLink === 'contact' ? 'true' : undefined} textColor={textColor}>
               Contact
             </ContactNavLink>
           </NavLinkContainer>
