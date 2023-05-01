@@ -12,18 +12,16 @@ type HeaderProps = {
 };
 
 const Logo = styled(DarkLogo)`
-  width: 80%;
-  height: 10rem;
-  vertical-align: top;
+  margin-top: 0;
+  max-height: 15rem;
+  max-width: 90%;
 
-
-
-  ${mediaQuery.medium`
-    height: 15rem;
+  ${mediaQuery.large`
+    max-height: 17.5rem;
   `}
 
   ${mediaQuery.huge`
-    height: 17.5rem;
+    max-height: 20rem;
   `}
 `;
 
@@ -59,7 +57,7 @@ const Header = ({ headerProps }: {headerProps?: HeaderProps}) => {
         </Description>
       </>}
       {!headerProps && 
-        <Logo height='10rem' />
+        <Logo/>
       }
     </HeaderContainer>
   );
