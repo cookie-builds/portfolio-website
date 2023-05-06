@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { StandardContainer } from '../../_common/components/standard';
-import { color, mediaQuery, textSize } from '../../global/style';
+import { color, textSize } from '../../global/style';
 
 const ProjectContainer = styled.div`
   width: 100%;

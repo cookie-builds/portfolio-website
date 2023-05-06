@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 import { fontFamily } from './global/style';
 import About from './modules/about';
+import Contact from './modules/contact';
 import Home from './modules/home';
 import NotFound from './modules/notFound';
 import Projects from './modules/projects';
@@ -41,7 +42,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'contact',
-        element: <></>,
+        element: <Contact/>,
+      },
+      {
+        path: 'portfolio-website',
+        element: <Home/>,
       },
     ],
   },

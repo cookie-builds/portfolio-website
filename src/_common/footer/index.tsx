@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiOutlineFacebook, AiOutlineGithub, AiOutlineInstagram, AiOutlineLinkedin } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { color, fontFamily, fontWeight, mediaQuery, textSize } from '../../global/style';
@@ -80,8 +80,8 @@ export const MobileLinks = () => {
         <Line />
       </LeftLinks>
       <RightLinks>
-        <EmailLink href='mailto:jonathancouck@outlook.com'>
-          jonathancouck@outlook.com
+        <EmailLink href='mailto:jonathan.couck@outlook.com'>
+          jonathan.couck@outlook.com
         </EmailLink>
         <Line />
       </RightLinks>
@@ -97,8 +97,8 @@ const FooterDiv = styled.footer`
   display: flex;
 `;
 
-const FooterContainer = styled(StandardContainer)`
-  display: flex;
+const FooterContainer = styled(StandardContainer)<{contactPage?: boolean}>`
+  display: ${p => p.contactPage ? 'none' : 'flex'};
   flex-direction: column;
   align-items: start;
   padding-top: 5rem;
@@ -154,10 +154,12 @@ const Copyright = styled.div`
 `;
 
 const Footer = () => {
+  const { pathname } = useLocation();
+
   return (
     <>
       <FooterDiv>
-        <FooterContainer>
+        <FooterContainer contactPage={pathname.includes('contact')}>
           <FooterText>Questions or think I have what it takes to create your website?</FooterText>
           <ContactUs to='/contact'>Get in touch <u>here</u>&nbsp;→</ContactUs>
         </FooterContainer>

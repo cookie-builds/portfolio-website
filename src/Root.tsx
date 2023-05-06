@@ -1,4 +1,5 @@
 import React from 'react';
+import { Toaster } from 'react-hot-toast';
 import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -19,11 +20,28 @@ const Root = (): JSX.Element => {
   React.useEffect(() => window.scrollTo(0, 0), [pathname]);
 
   return (
-    <Container>
-      <Navigator />
-      <Outlet />
-      <Footer />
-    </Container>
+    <>
+      <Toaster
+        toastOptions={{
+          success: {
+            style: {
+              background: 'green',
+              color: 'white',
+            },
+          },
+          error: {
+            style: {
+              background: 'red',
+              color: 'white',
+            },
+          },
+        }} />
+      <Container>
+        <Navigator />
+        <Outlet />
+        <Footer />
+      </Container>
+    </>
   );
 };
 
