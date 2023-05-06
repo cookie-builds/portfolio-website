@@ -3,21 +3,29 @@ import { AiOutlineFacebook, AiOutlineGithub, AiOutlineInstagram, AiOutlineLinked
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { color, fontWeight, mediaQuery, textSize } from '../../global/style';
+import { color, fontFamily, fontWeight, mediaQuery, textSize } from '../../global/style';
 import { StandardContainer } from '../components/standard';
 
 const LeftLinks = styled.div`
-  position: fixed;
+  position: absolute;
   margin-top: auto;
   bottom: 0;
   left: 0;
+
+  ${mediaQuery.extraLarge`
+    position: fixed;
+  `}
 `;
 
 const RightLinks = styled.div`
-  position: fixed;
+  position: absolute;
   margin-top: auto;
   bottom: 0;
   right: 0;
+
+  ${mediaQuery.extraLarge`
+    position: fixed;
+  `}
 `;
 
 const LogoLinks = styled.div`
@@ -30,8 +38,8 @@ const LogoLinks = styled.div`
 const EmailLink = styled.a`
   color: ${color.darkGray};
   font-weight: ${fontWeight.medium};
-  top: -105%;
-  left: -5.475rem;
+  top: -110%;
+  left: -6.2rem;
   position: absolute;
   transform: rotate(90deg);
   width: min-content;
@@ -40,7 +48,7 @@ const EmailLink = styled.a`
 
   &:hover {
     transform: scale(1.05) rotate(90deg) translateX(-0.4rem) ;
-  left: -5.5rem;
+  left: -6.15rem;
   }
 `;
 
@@ -83,6 +91,7 @@ export const MobileLinks = () => {
 
 
 const FooterDiv = styled.footer`
+  position: relative;
   padding-bottom: 5rem;
   flex-grow: 1;
   display: flex;
@@ -111,7 +120,7 @@ const FooterText = styled.p`
   ${mediaQuery.medium`
     ${textSize.huge}
   `}
-  font-family: Roboto Mono;
+  font-family: ${fontFamily.special};
   text-align: left;
   color: ${color.darkGray};
 `;
@@ -131,14 +140,28 @@ const ContactUs = styled(Link)`
   }
 `;
 
+const Copyright = styled.div`
+  position: absolute;
+  font-weight: ${fontWeight.light};
+  bottom: 0rem;
+  right: 0rem;
+  left: 0rem;
+
+  ${mediaQuery.medium`
+    right: 5rem;
+    left: unset; 
+  `}
+`;
+
 const Footer = () => {
   return (
     <>
       <FooterDiv>
         <FooterContainer>
           <FooterText>Questions or think I have what it takes to create your website?</FooterText>
-          <ContactUs to='/contact'>Get in contact <u>here</u>&nbsp;→</ContactUs>
+          <ContactUs to='/contact'>Get in touch <u>here</u>&nbsp;→</ContactUs>
         </FooterContainer>
+        <Copyright>© CookieBuilds 2022</Copyright>
       </FooterDiv>
       <MobileLinks />
     </>

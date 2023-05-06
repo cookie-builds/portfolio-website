@@ -1,9 +1,10 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Footer from './_common/footer';
 import Navigator from './_common/navigator';
+;
 
 const Container = styled.div`
   position: relative;
@@ -13,6 +14,10 @@ const Container = styled.div`
 `;
 
 const Root = (): JSX.Element => {
+  const { pathname } = useLocation();
+
+  React.useEffect(() => window.scrollTo(0, 0), [pathname]);
+
   return (
     <Container>
       <Navigator />
