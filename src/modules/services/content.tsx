@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaNodeJs,FaReact } from 'react-icons/fa';
 import { HiCode,HiOutlineDesktopComputer, HiOutlineDeviceMobile } from 'react-icons/hi';
-import { SiBlazor, SiDotnet,SiKotlin } from 'react-icons/si';
+import { SiBlazor, SiDotnet } from 'react-icons/si';
 import styled from 'styled-components';
 
 import { StandardContainer } from '../../_common/components/standard';
@@ -106,7 +106,7 @@ const Content = () => {
         <WhatWeDo style={{ background: 'linear-gradient(0deg, rgba(102,102,102,1) 0%, rgba(34,34,34,1) 100%)' }}>
           <HiOutlineDesktopComputer color={color.primary} size='8rem' style={{ margin: '0 auto' }} />
           <Title>Custom websites</Title>
-          <Text>CookieBuilds designs and creates custom mobile firstwebsites, scalable for desktop and mobile devices.</Text>
+          <Text>I design, create and maintain custom websites, scalable for devices of any size.</Text>
         </WhatWeDo>
         <WhatWeDo style={{ background: 'linear-gradient(0deg, rgba(102,102,102,1) 0%, rgba(34,34,34,1) 100%)' }}>
           <HiCode color={color.primary} size='8rem' style={{ margin: '0 auto' }} />
@@ -116,7 +116,7 @@ const Content = () => {
         <WhatWeDo style={{ background: 'linear-gradient(0deg, rgba(102,102,102,1) 0%, rgba(34,34,34,1) 100%)' }}>
           <HiOutlineDeviceMobile color={color.primary} size='8rem' style={{ margin: '0 auto' }} />
           <Title>Mobile applications</Title>
-          <Text>CookieBuilds helps create your application that runs on any mobile device!</Text>
+          <Text>CookieBuilds helps create an application downloadable and runnable on any mobile device!</Text>
         </WhatWeDo>
       </FlexWhatWeDo>
       <FlexWhatWeUse>

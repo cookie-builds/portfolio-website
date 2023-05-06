@@ -91,6 +91,7 @@ export const MobileLinks = () => {
 
 
 const FooterDiv = styled.footer`
+  position: relative;
   padding-bottom: 5rem;
   flex-grow: 1;
   display: flex;
@@ -139,14 +140,28 @@ const ContactUs = styled(Link)`
   }
 `;
 
+const Copyright = styled.div`
+  position: absolute;
+  font-weight: ${fontWeight.light};
+  bottom: 0rem;
+  right: 0rem;
+  left: 0rem;
+
+  ${mediaQuery.medium`
+    right: 5rem;
+    left: unset; 
+  `}
+`;
+
 const Footer = () => {
   return (
     <>
       <FooterDiv>
         <FooterContainer>
           <FooterText>Questions or think I have what it takes to create your website?</FooterText>
-          <ContactUs to='/contact'>Get in contact <u>here</u>&nbsp;→</ContactUs>
+          <ContactUs to='/contact'>Get in touch <u>here</u>&nbsp;→</ContactUs>
         </FooterContainer>
+        <Copyright>© CookieBuilds 2022</Copyright>
       </FooterDiv>
       <MobileLinks />
     </>

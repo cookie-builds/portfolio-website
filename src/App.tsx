@@ -8,6 +8,7 @@ import { fontFamily } from './global/style';
 import About from './modules/about';
 import Home from './modules/home';
 import NotFound from './modules/notFound';
+import Projects from './modules/projects';
 import Services from './modules/services';
 import Root from './Root';
 
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'projects',
-        element: <></>,
+        element: <Projects/>,
       },
       {
         path: 'contact',
