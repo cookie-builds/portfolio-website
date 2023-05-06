@@ -76,7 +76,6 @@ const NavigationContainer = styled.div<{bg: string, text: string, shadow: string
   width: 100vw;
   transition: background-color 0.2s, color 0.2s;
   margin: 0;
-  padding: 0;
   z-index: 1000;
 `;
 
@@ -151,7 +150,7 @@ const ContactNavLink = styled(NavLink)<{active?: string, textColor: string}>`
 const NavigationBar = styled(StandardContainer)`
   display: flex;
   margin: auto;
-  padding: 0;
+  padding: 0 1rem;
   ${mediaQuery.medium`
     padding: 0.5rem 0;
   `}

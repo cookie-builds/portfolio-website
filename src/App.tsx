@@ -4,31 +4,35 @@ import * as React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { fontFamily } from './global/style';
+import About from './modules/about';
 import Home from './modules/home';
 import NotFound from './modules/notFound';
+import Services from './modules/services';
 import Root from './Root';
 
 const AppContainer = styled.div`
   min-height: 100vh;
+  font-family: ${fontFamily.regular}
 `;
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-    errorElement: <NotFound />,
+    errorElement: <NotFound/>,
     children: [
       {
         path: '',
-        element: <Home />,
+        element: <Home/>,
       },
       {
         path: 'about',
-        element: <></>,
+        element: <About/>,
       },
       {
         path: 'services',
-        element: <></>,
+        element: <Services/>,
       },
       {
         path: 'projects',

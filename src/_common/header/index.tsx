@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import DarkLogo from '-!svg-react-loader!../../global/img/Dark.svg';
 
-import { color, fontWeight, mediaQuery, textSize } from '../../global/style';
+import { color, fontWeight, mediaQuery, screenSize, textSize } from '../../global/style';
 import { StandardContainer } from '../components/standard';
 
 type HeaderProps = {
@@ -25,28 +25,36 @@ const Logo = styled(DarkLogo)`
   `}
 `;
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.div<{hasProps?: string}>`
   display: flex;
   flex-direction: column;
-  margin-top: 6rem;
+  margin-top: 8rem;
   gap: 1rem;
   align-items: center;
   text-align: left;
   color: ${color.darkGray};
+  
+  @media only screen and (min-width: ${screenSize.large}) {
+    margin-top: ${p => p.hasProps ? '12rem' : '7rem'};
+  }
 `;
 
 const Title = styled(StandardContainer)`
   ${textSize.huge}
   font-weight: ${fontWeight.bold};
+  padding: 0;
+  margin: 0;
 `;
 const Description = styled(StandardContainer)`
-  ${textSize.subtitle}
-  font-weight: ${fontWeight.medium};
+  ${textSize.p}
+  font-weight: ${fontWeight.book};
+  padding: 0;
+  margin: 0;
 `;
 
 const Header = ({ headerProps }: {headerProps?: HeaderProps}) => {
   return (
-    <HeaderContainer>
+    <HeaderContainer hasProps={headerProps ? 'true' : undefined}>
       {headerProps && 
       <>
         <Title>

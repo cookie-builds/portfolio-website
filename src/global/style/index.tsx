@@ -100,7 +100,6 @@ export const textSize = {
   `,
   title: () => css`
     font-weight: ${fontWeight.bold};
-    line-height: 1;
     font-size: 2rem;
 
     ${mediaQuery.small`
@@ -136,8 +135,8 @@ export const textSize = {
   `,
 };
 
-export const fontFamily = { regular: 'inherit', special: 'Roboto Mono' };
+export const fontFamily = { regular: 'Gotham', special: 'Gotham' };
 
-export const spacing = { xs: '0.25rem', sm: '0.5rem', md: '1rem', lg: '1.5rem', xl: '2rem', xxl: '4rem', huge: '8rem' };
+export const spacing = { xs: 0.25, sm: 0.5, md: 1, lg: 1.5, xl: 2, xxl: 4, huge: 8 };
 
 export const borderWidth = { sm: '1px', md: '2px' };
