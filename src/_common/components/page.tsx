@@ -17,7 +17,7 @@ const page = ({ title, seoInformation, children }: {title?: string, seoInformati
   return (
     <div>
       <Helmet>
-        <title>{`${title} | ${standardSeo.title}`}</title>
+        <title>{title ? `${title} | ${standardSeo.title}` : standardSeo.title}</title>
         <meta charSet='utf-8' />
         <meta name='title' content={seoInformation && seoInformation.title ? `${title} | ${standardSeo.title}` : standardSeo.title} />
         <meta name='description' content={seoInformation?.description ? seoInformation.description : standardSeo.description} />

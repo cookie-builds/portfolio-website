@@ -148,6 +148,7 @@ const ContactNavLink = styled(NavLink)<{active?: string, textColor: string}>`
 `;
 
 const NavigationBar = styled(StandardContainer)`
+  background-color: ${color.transparent};
   display: flex;
   margin: auto;
   padding: 0 1rem;
@@ -161,7 +162,7 @@ const NavigationBar = styled(StandardContainer)`
 
 const LogoLink = styled(NavLink)<{textColor: string}>`
   ${textSize.subtitle}
-  font-family: ${fontFamily.special};
+  font-family: '${fontFamily.special}';
   text-align: left;
   margin-right: auto;
   padding: 1rem 0rem 1rem 1rem;

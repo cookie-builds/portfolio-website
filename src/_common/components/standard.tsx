@@ -1,29 +1,44 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { mediaQuery } from '../../global/style';
+import { color, mediaQuery } from '../../global/style';
 import { spacing } from '../../global/style';
 
 export const StandardContainer = styled.div`
-  width: calc(100%-${spacing.md*2}rem);
-  padding: ${spacing.md}rem;
-
+  width: 100%;
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: ${color.darkGray};
   ${mediaQuery.medium`
-    width: calc(100%-3rem);
-    padding: 1.5rem;
+    width: 100%;
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: ${color.darkGray};
   `}
-
   ${mediaQuery.large`
-    width: calc(100%-12rem);
-    margin: 3rem;
-    padding: 3rem;
+    width: calc(100% - 8rem);
+    margin: 4rem;
+    padding: 4rem;
+    background-color: ${color.darkGray};
   `}
-
   ${mediaQuery.extraLarge`
-    width: 63rem;
+    width: calc(100% - 12rem);
+    margin: 6rem;
+    padding: 6rem;
+    background-color: ${color.darkGray};
   `}
   ${mediaQuery.huge`
-    width: 82.5rem;
-    padding: 5rem;
+    width: 90rem;
+    margin: 8rem auto;
+    padding: 8rem;
+    background-color: ${color.darkGray};
   `}
+`;
+
+export const StandardSection = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: ${color.lightText}
 `;

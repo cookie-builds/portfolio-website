@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { StandardContainer } from '../../_common/components/standard';
+import { StandardContainer, StandardSection } from '../../_common/components/standard';
 import { color, textSize } from '../../global/style';
 
 const ProjectContainer = styled.div`
@@ -80,16 +80,9 @@ const Project = ({ title, description, tags, image }: ProjectProps): JSX.Element
   );
 };
 
-const StyledContainer = styled(StandardContainer)`
-  background-color: ${color.darkGray};
-  display: flex;
-  flex-direction: column;
-  margin: 4rem auto;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+const StyledSection = styled(StandardSection)`
   color: ${color.lightText};
   gap: 2rem;
-  text-align: left;
 `;
 
 type Tag = 'Front-end' | 'Back-end' | 'Blazor' | 'React' | 'NodeJS' | '.Net';
@@ -112,9 +105,11 @@ const Content = () => {
 
   ;
   return (
-    <StyledContainer>
-      {projects.map((p: ProjectProps) => <Project {...p} /> )}
-    </StyledContainer>
+    <StandardContainer>
+      <StyledSection>
+        {projects.map((p: ProjectProps) => <Project {...p} /> )}
+      </StyledSection>
+    </StandardContainer>
   );
 };
 

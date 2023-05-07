@@ -12,7 +12,7 @@ type HeaderProps = {
 };
 
 const Logo = styled(DarkLogo)`
-  margin-top: 0;
+  margin: 0 auto;
   max-height: 15rem;
   max-width: 90%;
 
@@ -25,27 +25,29 @@ const Logo = styled(DarkLogo)`
   `}
 `;
 
-const HeaderContainer = styled.div<{hasProps?: string}>`
+const HeaderContainer = styled(StandardContainer)<{hasProps?: string}>`
+  background-color: ${color.transparent};
+  color: ${color.darkGray};
+  text-align: left;
   display: flex;
   flex-direction: column;
-  margin-top: 8rem;
   gap: 1rem;
-  align-items: center;
-  text-align: left;
-  color: ${color.darkGray};
-  
+  margin-top: 8rem;
+  padding-top: 0;
+  padding-bottom: 0;
+
   @media only screen and (min-width: ${screenSize.large}) {
     margin-top: ${p => p.hasProps ? '12rem' : '7rem'};
   }
 `;
 
-const Title = styled(StandardContainer)`
+const Title = styled.div`
   ${textSize.huge}
   font-weight: ${fontWeight.bold};
   padding: 0;
   margin: 0;
 `;
-const Description = styled(StandardContainer)`
+const Description = styled.div`
   ${textSize.p}
   font-weight: ${fontWeight.book};
   padding: 0;

@@ -4,13 +4,13 @@ import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { color, fontFamily, fontWeight, mediaQuery, textSize } from '../../global/style';
-import { StandardContainer } from '../components/standard';
+import { StandardContainer, StandardSection } from '../components/standard';
 
 const LeftLinks = styled.div`
   position: absolute;
   margin-top: auto;
   bottom: 0;
-  left: 0;
+  left: 0.5rem;
 
   ${mediaQuery.extraLarge`
     position: fixed;
@@ -21,7 +21,7 @@ const RightLinks = styled.div`
   position: absolute;
   margin-top: auto;
   bottom: 0;
-  right: 0;
+  right: 0.5rem;
 
   ${mediaQuery.extraLarge`
     position: fixed;
@@ -97,22 +97,22 @@ const FooterDiv = styled.footer`
   display: flex;
 `;
 
-const FooterContainer = styled(StandardContainer)`
+const StyledContainer = styled(StandardContainer)`
+  background-color: ${color.transparent};
   display: flex;
   flex-direction: column;
   align-items: start;
-  padding-top: 5rem;
+  padding-top: 0;
+  padding-bottom: 0;
   margin: auto auto 0 auto;
   width: 70%;
   ${mediaQuery.large`
-    width: 60%;
+    width: 50rem;
   `}
-  ${mediaQuery.extraLarge`
-    width: 50%;
-  `}
-  ${mediaQuery.huge`
-    width: 40%;
-  `}
+`;
+
+const StyledSection = styled(StandardSection)`
+  font-family: ${fontFamily.special};
 `;
 
 const FooterText = styled.p`
@@ -120,13 +120,13 @@ const FooterText = styled.p`
   ${mediaQuery.medium`
     ${textSize.huge}
   `}
-  font-family: ${fontFamily.special};
   text-align: left;
   color: ${color.darkGray};
 `;
 
 const ContactUs = styled(Link)`
   ${textSize.subtitle}
+  text-align: left;
   ${mediaQuery.medium`
     ${textSize.title}
   `}
@@ -151,6 +151,10 @@ const Copyright = styled.div`
     right: 5rem;
     left: unset; 
   `}
+  ${mediaQuery.medium`
+    right: 10rem;
+    left: unset; 
+  `}
 `;
 
 const Footer = () => {
@@ -161,10 +165,12 @@ const Footer = () => {
       {!pathname.includes('contact') &&
       <>
         <FooterDiv>
-          <FooterContainer>
-            <FooterText>Questions or think I have what it takes to create your website?</FooterText>
-            <ContactUs to='/contact'>Get in touch <u>here</u>&nbsp;→</ContactUs>
-          </FooterContainer>
+          <StyledContainer>
+            <StyledSection>
+              <FooterText>Questions or think I have what it takes to create your website?</FooterText>
+              <ContactUs to='/contact'>Get in touch <u>here</u>&nbsp;→</ContactUs>
+            </StyledSection>
+          </StyledContainer>
           <Copyright>© CookieBuilds 2022</Copyright>
         </FooterDiv>
         <MobileLinks />

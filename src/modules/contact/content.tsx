@@ -5,20 +5,12 @@ import { toast } from 'react-hot-toast';
 import { FaSpinner } from 'react-icons/fa';
 import styled, { keyframes } from 'styled-components';
 
-import { StandardContainer } from '../../_common/components/standard';
+import { StandardContainer, StandardSection } from '../../_common/components/standard';
 import { color, fontWeight, mediaQuery, textSize } from '../../global/style';
 ;
 
-const StyledContainer = styled(StandardContainer)`
-  background-color: ${color.darkGray};
-  display: flex;
-  flex-direction: column;
-  margin: 4rem auto;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  color: ${color.lightText};
-  gap: 6rem;
-  text-align: left;
+const StyledSection = styled(StandardSection)`
+  text-align: left; 
 `;
 
 const FormContainer = styled.form`
@@ -99,31 +91,33 @@ const Content = () => {
     }
   };
   return (
-    <StyledContainer>
-      <FormContainer onSubmit={handleSubmit(onSubmit)} style={{ background: 'linear-gradient(0deg, rgba(102,102,102,1) 0%, rgba(34,34,34,1) 100%)' }}>
-        <FormField>
+    <StandardContainer>
+      <StyledSection>
+        <FormContainer onSubmit={handleSubmit(onSubmit)} style={{ background: 'linear-gradient(0deg, rgba(102,102,102,1) 0%, rgba(34,34,34,1) 100%)' }}>
+          <FormField>
           Name/company
-          <StyledInput type='text' {...register('name', { required: true })} aria-invalid={errors.name ? 'true' : 'false'}/>
-          {errors.name?.type === 'required' && <p role="alert" style={{ color: 'red', margin: '0' }}>Name/company is required</p>}
-        </FormField>
-        <FormField>
+            <StyledInput type='text' {...register('name', { required: true })} aria-invalid={errors.name ? 'true' : 'false'}/>
+            {errors.name?.type === 'required' && <p role="alert" style={{ color: 'red', margin: '0' }}>Name/company is required</p>}
+          </FormField>
+          <FormField>
           Email
-          <StyledInput type='text' {...register('email', { required: true })} aria-invalid={errors.email ? 'true' : 'false'}/>
-          {errors.email?.type === 'required' && <p role="alert" style={{ color: 'red', margin: '0' }}>Email is required</p>}
-        </FormField>
-        <FormFieldSpan>
+            <StyledInput type='text' {...register('email', { required: true })} aria-invalid={errors.email ? 'true' : 'false'}/>
+            {errors.email?.type === 'required' && <p role="alert" style={{ color: 'red', margin: '0' }}>Email is required</p>}
+          </FormField>
+          <FormFieldSpan>
           Message
-          <StyledTextArea rows={5} {...register('message', { required: true })} aria-invalid={errors.message ? 'true' : 'false'}/>
-          {errors.message?.type === 'required' && <p role="alert" style={{ color: 'red', margin: '0' }}>Message is required</p>}
-        </FormFieldSpan>
-        <SubmitButton type='submit' disabled={isSubmitting}>
-          {isSubmitting && 
+            <StyledTextArea rows={5} {...register('message', { required: true })} aria-invalid={errors.message ? 'true' : 'false'}/>
+            {errors.message?.type === 'required' && <p role="alert" style={{ color: 'red', margin: '0' }}>Message is required</p>}
+          </FormFieldSpan>
+          <SubmitButton type='submit' disabled={isSubmitting}>
+            {isSubmitting && 
             <Spinner color={color.darkText} />
-          }
-          {!isSubmitting && 'Send'}
-        </SubmitButton>
-      </FormContainer>
-    </StyledContainer>
+            }
+            {!isSubmitting && 'Send'}
+          </SubmitButton>
+        </FormContainer>
+      </StyledSection>
+    </StandardContainer>
   );
 };
 

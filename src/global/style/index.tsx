@@ -135,7 +135,7 @@ export const textSize = {
   `,
 };
 
-export const fontFamily = { regular: 'Gotham', special: 'Gotham' };
+export const fontFamily = { regular: 'Gotham', special: 'Roboto Mono' };
 
 export const spacing = { xs: 0.25, sm: 0.5, md: 1, lg: 1.5, xl: 2, xxl: 4, huge: 8 };
 
