@@ -9,7 +9,6 @@ const ProjectContainer = styled.div`
 `;
 
 const ProjectInner = styled.div`
-  padding: 2rem;
   display: grid;
   grid-template-columns: 60% 40%;
   gap: 1rem;
@@ -18,7 +17,7 @@ const ProjectInner = styled.div`
 const ProjectText = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  padding: 2rem 0 2rem 2rem;
 `;
 
 const Title = styled.h3`
@@ -45,6 +44,10 @@ const StyledTag = styled.div`
   background-color: ${color.lightGray};
   border-radius: 1rem;
 `;
+const ImageWrapper = styled.div`
+  width: 100%;
+  padding: 2rem 2rem 2rem 0;
+`;
 
 const Image = styled.img`
   width: 100%;
@@ -69,7 +72,9 @@ const Project = ({ title, description, tags, image }: ProjectProps): JSX.Element
             {tags.map((value) => <StyledTag>{value}</StyledTag>)}
           </Tags>
         </ProjectText>
-        <Image src={image} />
+        <ImageWrapper>
+          <Image src={image} />
+        </ImageWrapper>
       </ProjectInner>
     </ProjectContainer>
   );

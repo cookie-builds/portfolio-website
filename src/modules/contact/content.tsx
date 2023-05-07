@@ -1,13 +1,13 @@
 import emailjs from '@emailjs/browser';
 import React from 'react';
+import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { AiOutlineMail } from 'react-icons/ai';
-import { FaLinkedinIn } from 'react-icons/fa';
-import { HiOutlineDeviceMobile } from 'react-icons/hi';
-import styled from 'styled-components';
+import { FaSpinner } from 'react-icons/fa';
+import styled, { keyframes } from 'styled-components';
 
 import { StandardContainer } from '../../_common/components/standard';
-import { color, mediaQuery, textSize } from '../../global/style'; ;
+import { color, fontWeight, mediaQuery, textSize } from '../../global/style';
+;
 
 const StyledContainer = styled(StandardContainer)`
   background-color: ${color.darkGray};
@@ -21,35 +21,13 @@ const StyledContainer = styled(StandardContainer)`
   text-align: left;
 `;
 
-const FlexWhatWeDo = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  width: 100%;
-  text-align: center;
-  justify-content: center;
-`;
-
-const WhatWeDo = styled.div`
-  flex: 1 1 0;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  padding: 2rem;
-  min-width: min-content;
-  border-radius: 1rem;
-`;
-
-const Text = styled.p`
-  ${textSize.p}
-  text-align: center;
-`;
-
 const FormContainer = styled.form`
   display: grid;
   padding: 2rem;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 `;
 
 const FormField = styled.label`
@@ -80,70 +58,70 @@ const StyledTextArea = styled.textarea`
 
 const SubmitButton = styled.button`
   ${textSize.p}
-  cursor: pointer;  
+  cursor: pointer;
+  background-color: ${color.lightGray};
+  font-weight: ${fontWeight.bold};
+  color: ${color.darkText};
   padding: 0.5rem 1rem;
   border: 0;
   grid-column: span 2;
-  width: min-content;
+  width: 7rem;
+  height: 2.5rem;
   margin-left: auto;
 `;
 
-const Content = () => {
-  const [toSend, setToSend] = React.useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
-  const handleSubmit = React.useCallback(async (event: any) => {
-    event.preventDefault();
+const Spinner = styled(FaSpinner)`
+  animation: ${rotate} 1s linear infinite;
+`;
+
+const Content = () => {
+  const { register, formState: { errors, isSubmitting }, handleSubmit } = useForm();
+  const onSubmit = async (data: any) => {
     try {
       await emailjs.send(
         'service_mif6kp5',
         'template_zl9ivuq',
-        toSend,
+        data,
         'zS105_6YutEc5OvSu'
       );
-      toast.success('Here is your toast.');
+      toast.success('The notification has been sent out! I will contact you very soon. Thanks');
     } catch(e) {
-      toast.error('Woops, something went wrong. You can always contact me by sending an email directly to jonathan.couck@outlook.com.');
+      toast.error('Woops, something went wrong. Please contact me directly at jonathan.couck@outlook.com!');
     }
-  }, [toSend]);
-
-  const handleChange = React.useCallback((e: any) => {
-    setToSend({ ...toSend, [e.target.name]: e.target.value });
-  }, [toSend]);
-
+  };
   return (
     <StyledContainer>
-      <FlexWhatWeDo>
-        <WhatWeDo style={{ background: 'linear-gradient(0deg, rgba(102,102,102,1) 0%, rgba(34,34,34,1) 100%)' }}>
-          <HiOutlineDeviceMobile color={color.primary} size='6rem' style={{ margin: '0 auto' }} />
-          <Text>+32&nbsp;494&nbsp;21&nbsp;85&nbsp;31</Text>
-        </WhatWeDo>
-        <WhatWeDo style={{ background: 'linear-gradient(0deg, rgba(102,102,102,1) 0%, rgba(34,34,34,1) 100%)' }}>
-          <FaLinkedinIn color={color.primary} size='6rem' style={{ margin: '0 auto' }} />
-          <Text>@jonathancouck</Text>
-        </WhatWeDo>
-        <WhatWeDo style={{ background: 'linear-gradient(0deg, rgba(102,102,102,1) 0%, rgba(34,34,34,1) 100%)' }}>
-          <AiOutlineMail color={color.primary} size='6rem' style={{ margin: '0 auto' }} />
-          <Text>jonathan.couck@outlook.com</Text>
-        </WhatWeDo>
-      </FlexWhatWeDo>
-      <FormContainer onSubmit={handleSubmit} style={{ background: 'linear-gradient(0deg, rgba(102,102,102,1) 0%, rgba(34,34,34,1) 100%)' }}>
+      <FormContainer onSubmit={handleSubmit(onSubmit)} style={{ background: 'linear-gradient(0deg, rgba(102,102,102,1) 0%, rgba(34,34,34,1) 100%)' }}>
         <FormField>
-          Name / Company
-          <StyledInput type='text' name='name' onChange={handleChange} />
+          Name/company
+          <StyledInput type='text' {...register('name', { required: true })} aria-invalid={errors.name ? 'true' : 'false'}/>
+          {errors.name?.type === 'required' && <p role="alert" style={{ color: 'red', margin: '0' }}>Name/company is required</p>}
         </FormField>
         <FormField>
           Email
-          <StyledInput type='text' name='email' onChange={handleChange} />
+          <StyledInput type='text' {...register('email', { required: true })} aria-invalid={errors.email ? 'true' : 'false'}/>
+          {errors.email?.type === 'required' && <p role="alert" style={{ color: 'red', margin: '0' }}>Email is required</p>}
         </FormField>
         <FormFieldSpan>
           Message
-          <StyledTextArea rows={5} name='message' onChange={handleChange} />
+          <StyledTextArea rows={5} {...register('message', { required: true })} aria-invalid={errors.message ? 'true' : 'false'}/>
+          {errors.message?.type === 'required' && <p role="alert" style={{ color: 'red', margin: '0' }}>Message is required</p>}
         </FormFieldSpan>
-        <SubmitButton type='submit'>Send</SubmitButton>
+        <SubmitButton type='submit' disabled={isSubmitting}>
+          {isSubmitting && 
+            <Spinner color={color.darkText} />
+          }
+          {!isSubmitting && 'Send'}
+        </SubmitButton>
       </FormContainer>
     </StyledContainer>
   );

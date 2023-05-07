@@ -58,7 +58,7 @@ const MobileModal = ({ selected, handleLinkClick }: {selected: string, handleLin
   return (
     <MobileModalContainer>
       <MobileLinks>
-        {['Home', 'About', 'Services', 'Projects', 'Contact'].map((link) => 
+        {['Home', 'Services', 'Projects', 'Contact'].map((link) => 
           <MobileLink to={`/${link === 'Home' ? '' : link.toLowerCase()}`} key={link} onClick={() => handleLinkClick(link.toLowerCase())} active={selected === (link === 'Home' ? '' : link.toLowerCase()) ? 'true' : undefined}>
             {link}
           </MobileLink>
@@ -133,7 +133,7 @@ const NavLink = styled(Link)<{active?: string, textColor: string}>`
 
 const ContactNavLink = styled(NavLink)<{active?: string, textColor: string}>`
   background-color: ${p => p.textColor === color.darkText ? color.darkGray : color.lightGray};
-  color: ${p => p.textColor === color.darkText ? color.lightText : color.darkText};
+  color: ${p => p.active ? color.primary : p.textColor === color.darkText ? color.lightText : color.darkText};
   padding: 0.75rem 1.5rem;
   border-radius: 10rem;
   transition: 0.1s;
@@ -233,7 +233,7 @@ const Navigator = () => {
             CookieBuilds
           </LogoLink>
           <NavLinkContainer>
-            {['About', 'Services', 'Projects'].map((link) => 
+            {['Services', 'Projects'].map((link) => 
               <NavLink to={`/${link.toLowerCase()}`} key={link} onClick={() => handleLinkClick(link.toLowerCase())} active={selectedLink === link.toLowerCase() ? 'true' : undefined} textColor={textColor}>
                 {link}
               </NavLink>

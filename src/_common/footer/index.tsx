@@ -97,8 +97,8 @@ const FooterDiv = styled.footer`
   display: flex;
 `;
 
-const FooterContainer = styled(StandardContainer)<{contactPage?: boolean}>`
-  display: ${p => p.contactPage ? 'none' : 'flex'};
+const FooterContainer = styled(StandardContainer)`
+  display: flex;
   flex-direction: column;
   align-items: start;
   padding-top: 5rem;
@@ -158,14 +158,18 @@ const Footer = () => {
 
   return (
     <>
-      <FooterDiv>
-        <FooterContainer contactPage={pathname.includes('contact')}>
-          <FooterText>Questions or think I have what it takes to create your website?</FooterText>
-          <ContactUs to='/contact'>Get in touch <u>here</u>&nbsp;→</ContactUs>
-        </FooterContainer>
-        <Copyright>© CookieBuilds 2022</Copyright>
-      </FooterDiv>
-      <MobileLinks />
+      {!pathname.includes('contact') &&
+      <>
+        <FooterDiv>
+          <FooterContainer>
+            <FooterText>Questions or think I have what it takes to create your website?</FooterText>
+            <ContactUs to='/contact'>Get in touch <u>here</u>&nbsp;→</ContactUs>
+          </FooterContainer>
+          <Copyright>© CookieBuilds 2022</Copyright>
+        </FooterDiv>
+        <MobileLinks />
+      </> 
+      }
     </>
   );
 };
