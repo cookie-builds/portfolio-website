@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiOutlineFacebook, AiOutlineGithub, AiOutlineInstagram, AiOutlineLinkedin } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { color, fontFamily, fontWeight, mediaQuery, textSize } from '../../global/style';
@@ -80,8 +80,8 @@ export const MobileLinks = () => {
         <Line />
       </LeftLinks>
       <RightLinks>
-        <EmailLink href='mailto:jonathancouck@outlook.com'>
-          jonathancouck@outlook.com
+        <EmailLink href='mailto:jonathan.couck@outlook.com'>
+          jonathan.couck@outlook.com
         </EmailLink>
         <Line />
       </RightLinks>
@@ -154,16 +154,22 @@ const Copyright = styled.div`
 `;
 
 const Footer = () => {
+  const { pathname } = useLocation();
+
   return (
     <>
-      <FooterDiv>
-        <FooterContainer>
-          <FooterText>Questions or think I have what it takes to create your website?</FooterText>
-          <ContactUs to='/contact'>Get in touch <u>here</u>&nbsp;→</ContactUs>
-        </FooterContainer>
-        <Copyright>© CookieBuilds 2022</Copyright>
-      </FooterDiv>
-      <MobileLinks />
+      {!pathname.includes('contact') &&
+      <>
+        <FooterDiv>
+          <FooterContainer>
+            <FooterText>Questions or think I have what it takes to create your website?</FooterText>
+            <ContactUs to='/contact'>Get in touch <u>here</u>&nbsp;→</ContactUs>
+          </FooterContainer>
+          <Copyright>© CookieBuilds 2022</Copyright>
+        </FooterDiv>
+        <MobileLinks />
+      </> 
+      }
     </>
   );
 };

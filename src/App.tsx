@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { fontFamily } from './global/style';
-import About from './modules/about';
+import Contact from './modules/contact';
 import Home from './modules/home';
 import NotFound from './modules/notFound';
 import Projects from './modules/projects';
@@ -14,7 +14,7 @@ import Root from './Root';
 
 const AppContainer = styled.div`
   min-height: 100vh;
-  font-family: ${fontFamily.regular}
+  font-family: ${fontFamily.regular};
 `;
 
 const router = createBrowserRouter([
@@ -28,10 +28,6 @@ const router = createBrowserRouter([
         element: <Home/>,
       },
       {
-        path: 'about',
-        element: <About/>,
-      },
-      {
         path: 'services',
         element: <Services/>,
       },
@@ -41,7 +37,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'contact',
-        element: <></>,
+        element: <Contact/>,
+      },
+      {
+        path: 'portfolio-website',
+        element: <Home/>,
       },
     ],
   },
