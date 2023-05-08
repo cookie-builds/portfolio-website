@@ -171,12 +171,13 @@ const LogoLink = styled(NavLink)<{textColor: string}>`
   font-family: '${fontFamily.special}';
   font-weight: 700;
   text-align: left;
-  margin-right: auto;
   padding: 1rem;
+  margin-right: auto;
   color: ${p => p.textColor};
   line-height: 2rem;
-
+  display: ${p => p.active && p.textColor === color.darkText ? 'none': 'flex' };
   ${mediaQuery.medium`
+    display: flex;
     padding: 0;
   `}
   ${LinkBottomLine} {
@@ -193,6 +194,13 @@ const NavLinkContainer = styled.div`
   display: none;
   ${mediaQuery.medium`
     display: flex;
+  `}
+`;
+
+const CB = styled.span`
+  display: none;
+  ${mediaQuery.medium`
+    display: inline;
   `}
 `;
 
@@ -246,7 +254,7 @@ const Navigator = () => {
       <NavigationContainer bg={bgColor} text={textColor} shadow={boxShadow}>
         <NavigationBar>
           <LogoLink to='' active={location.pathname === '/' ? 'true' : undefined} textColor={textColor} onClick={() => handleLinkClick('')}>
-            <Logo src={logo}/>CookieBuilds
+            <Logo src={logo}/><CB>CookieBuilds</CB>
           </LogoLink>
           <NavLinkContainer>
             {['Services', 'Projects'].map((link) => 

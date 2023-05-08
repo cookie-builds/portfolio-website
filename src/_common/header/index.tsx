@@ -32,9 +32,12 @@ const HeaderContainer = styled(StandardContainer)<{hasProps?: string}>`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: ${p => p.hasProps ? '12rem' : '4rem'};
+  margin-top: ${p => p.hasProps ? '8rem' : '4rem'};
   padding-top: 0;
   padding-bottom: 0;
+  ${mediaQuery.large`
+    margin-top: ${(p: any) => p.hasProps ? '12rem' : '4rem'};
+  `}
 `;
 
 const Title = styled.div`
