@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import DarkLogo from '-!svg-react-loader!../../global/img/Dark.svg';
 
-import { color, fontWeight, mediaQuery, screenSize, textSize } from '../../global/style';
+import { color, fontWeight, mediaQuery, textSize } from '../../global/style';
 import { StandardContainer } from '../components/standard';
 
 type HeaderProps = {
