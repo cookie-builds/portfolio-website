@@ -5,7 +5,7 @@ module.exports = {
     es2021: true,
   },
   parser: '@typescript-eslint/parser',
-  ignorePatterns: ['dist', 'node_modules'],
+  ignorePatterns: ['dist', 'node_modules', 'build'],
   extends: [
     'airbnb-typescript', 'prettier',
   ],
@@ -44,6 +44,6 @@ module.exports = {
     '@typescript-eslint/consistent-type-definitions': [2, 'type'],
     'simple-import-sort/imports': 2,
     '@typescript-eslint/strict-boolean-expressions': 0,
-    'import/no-extraneous-dependencies': [2, {'devDependencies': true}]
+    'import/no-extraneous-dependencies': [2, {'devDependencies': true}],
   },
 };
