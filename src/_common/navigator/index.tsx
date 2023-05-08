@@ -5,8 +5,10 @@ import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
+import LightLogo from '../../global/img/Dark.svg';
+import DarkLogo from '../../global/img/Light.svg';
 import { color, fontFamily,fontWeight,mediaQuery,shadow,textSize } from '../../global/style/index';
-import { StandardContainer } from '../components/standard';
+import { StandardContainer } from '../components/standard'; ;
 
 const COLOR_CHANGE_CUTOFF = 25;
 
@@ -167,6 +169,7 @@ const NavigationBar = styled(StandardContainer)`
 const LogoLink = styled(NavLink)<{textColor: string}>`
   ${textSize.subtitle}
   font-family: '${fontFamily.special}';
+  font-weight: 700;
   text-align: left;
   margin-right: auto;
   padding: 1rem;
@@ -193,6 +196,11 @@ const NavLinkContainer = styled.div`
   `}
 `;
 
+const Logo = styled.img`
+   height: 2rem;
+   margin-right: 0.5rem;
+`;
+
 const Navigator = () => {
   const location = useLocation();
   const [bgColor, setBgColor] = React.useState(color.transparent);
@@ -200,16 +208,19 @@ const Navigator = () => {
   const [boxShadow, setBoxShadow] = React.useState(shadow.none);
   const [selectedLink, setSelectedLink] = React.useState(location.pathname.substring(1));
   const [modalOpen, setModalOpen] = React.useState(false);
+  const [logo, setLogo] = React.useState(LightLogo);
 
   const handleScroll = React.useCallback(() => {
     if(window.scrollY < COLOR_CHANGE_CUTOFF) {
       setBgColor(color.transparent);
       setTextColor(color.darkText);
       setBoxShadow(shadow.none);
+      setLogo(LightLogo);
     } else if(window.scrollY >= COLOR_CHANGE_CUTOFF) {
       setBgColor(color.darkGray);
       setTextColor(color.lightText);
       setBoxShadow(shadow.medium);
+      setLogo(DarkLogo);
     }
   }, []);
 
@@ -235,7 +246,7 @@ const Navigator = () => {
       <NavigationContainer bg={bgColor} text={textColor} shadow={boxShadow}>
         <NavigationBar>
           <LogoLink to='' active={location.pathname === '/' ? 'true' : undefined} textColor={textColor} onClick={() => handleLinkClick('')}>
-            CookieBuilds
+            <Logo src={logo}/>CookieBuilds
           </LogoLink>
           <NavLinkContainer>
             {['Services', 'Projects'].map((link) => 

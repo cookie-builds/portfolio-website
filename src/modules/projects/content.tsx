@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { StandardContainer, StandardSection } from '../../_common/components/standard';
-import { color, mediaQuery, textSize } from '../../global/style';
+import { color, fontWeight, mediaQuery, textSize } from '../../global/style';
 
 const ProjectContainer = styled.div`
   width: 100%;
@@ -14,7 +14,7 @@ const ProjectInner = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, auto);
-  padding: 1rem;
+  padding: 2rem;
   gap: 1rem;
 
   ${mediaQuery.large`
@@ -51,11 +51,14 @@ const Tags = styled.div`
   margin-top: auto;
   color: ${color.darkText};
 `;
+
 const StyledTag = styled.div`
   padding: 0.5rem 1rem;
   background-color: ${color.lightGray};
+  font-weight: ${fontWeight.bold};
   border-radius: 1rem;
 `;
+
 const ImageWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -66,7 +69,7 @@ const ImageWrapper = styled.div`
   ${mediaQuery.large`
     max-height: unset;
     max-width: unset;
-    padding: 1rem 2rem;
+    padding: 0 1rem;
   `}
 `;
 

@@ -12,7 +12,7 @@ const LeftLinks = styled.div`
   bottom: 0;
   left: 0.5rem;
 
-  ${mediaQuery.extraLarge`
+  ${mediaQuery.large`
     position: fixed;
   `}
 `;
@@ -23,7 +23,7 @@ const RightLinks = styled.div`
   bottom: 0;
   right: 0.5rem;
 
-  ${mediaQuery.extraLarge`
+  ${mediaQuery.large`
     position: fixed;
   `}
 `;
@@ -32,14 +32,13 @@ const LogoLinks = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
-  transition: 0.1s;
 `;
 
 const EmailLink = styled.a`
   color: ${color.darkGray};
   font-weight: ${fontWeight.medium};
   top: -110%;
-  left: -6.2rem;
+  left: -5.5rem;
   position: absolute;
   transform: rotate(90deg);
   width: min-content;
@@ -48,13 +47,13 @@ const EmailLink = styled.a`
 
   &:hover {
     transform: scale(1.05) rotate(90deg) translateX(-0.4rem) ;
-  left: -6.15rem;
   }
 `;
 
 const IconLink = styled.a`
   background-color: ${color.transparent};
   border: none;
+  transition: 0.1s;
   &:hover {
     transform: scale(1.1);
     cursor: pointer;

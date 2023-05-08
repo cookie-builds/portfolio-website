@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { StandardContainer, StandardSection } from '../../_common/components/standard';
 import { color, mediaQuery, textSize } from '../../global/style';
 
-const MyImage = require('../../global/img/Codifly.jpg');
+const MyImage = require('../../global/img/LeMe.jpg');
 
 const StyledSection = styled(StandardSection)`
   color: ${color.lightText};
