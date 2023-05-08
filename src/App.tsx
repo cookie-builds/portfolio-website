@@ -3,6 +3,7 @@ import './App.css';
 import * as React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import styled from 'styled-components';
+import WebFont from 'webfontloader';
 
 import { fontFamily } from './global/style';
 import Contact from './modules/contact';
@@ -39,15 +40,19 @@ const router = createBrowserRouter([
         path: 'contact',
         element: <Contact/>,
       },
-      {
-        path: 'portfolio-website',
-        element: <Home/>,
-      },
     ],
   },
 ]);
 
 function App (): JSX.Element {
+  React.useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ['Roboto', 'Roboto Mono'],
+      },
+    });
+  });
+
   return (
     <AppContainer className="App">
       <RouterProvider router={router} />

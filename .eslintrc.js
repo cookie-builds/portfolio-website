@@ -44,5 +44,6 @@ module.exports = {
     '@typescript-eslint/consistent-type-definitions': [2, 'type'],
     'simple-import-sort/imports': 2,
     '@typescript-eslint/strict-boolean-expressions': 0,
+    'import/no-extraneous-dependencies': [2, {'devDependencies': true}]
   },
 };

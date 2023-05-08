@@ -1,8 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import { color, mediaQuery } from '../../global/style';
-import { spacing } from '../../global/style';
 
 export const StandardContainer = styled.div`
   width: 100%;
