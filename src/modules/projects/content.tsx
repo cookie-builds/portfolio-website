@@ -121,13 +121,13 @@ const Content = () => {
     },
     {
       'title': 'Poker Tracker',
-      'description': 'A website designed to make tracking poker results easier. Created as a school project, with front-end in React and back-end in NodeJS. This is not live anymore, but do please check out the code if you`re interested.',
+      'description': 'A website designed to make tracking poker results easier. Created as a school project, with front-end in React and back-end in NodeJS. This is not live anymore, but do please check out the code if you’re interested.',
       'tags': ['Front-end', 'Back-end', 'React', 'NodeJS'],
       'image': 'https://imgur.com/I8lukzH.jpg',
     },
     {
       'title': 'Squads reservation tool',
-      'description': 'A reservation tool made for a local fitness in Aalst. Created as a school project, made in .Net. This is not live anymore, but do please check out the code if you`re interested.',
+      'description': 'A reservation tool made for a local fitness in Aalst. Created as a school project, made in .Net. This is not live anymore, but do please check out the code if you’re interested.',
       'tags': ['Front-end', 'Back-end', 'Blazor', '.Net'],
       'image': 'https://imgur.com/JIrPt2i.jpg',
     },
