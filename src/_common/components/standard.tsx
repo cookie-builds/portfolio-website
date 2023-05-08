@@ -7,12 +7,12 @@ import { spacing } from '../../global/style';
 export const StandardContainer = styled.div`
   width: 100%;
   margin: 2rem 0;
-  padding: 1rem;
+  padding: 3rem 1rem;
   background-color: ${color.darkGray};
   ${mediaQuery.medium`
     width: 100%;
     margin: 3rem 0;
-    padding: 2rem;
+    padding: 3rem 2rem;
     background-color: ${color.darkGray};
   `}
   ${mediaQuery.large`

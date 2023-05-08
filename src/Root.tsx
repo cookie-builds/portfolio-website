@@ -3,7 +3,6 @@ import { Toaster } from 'react-hot-toast';
 import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { StandardContainer, StandardSection } from './_common/components/standard';
 import Footer from './_common/footer';
 import Navigator from './_common/navigator';
 ;

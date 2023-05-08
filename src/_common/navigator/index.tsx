@@ -151,12 +151,16 @@ const NavigationBar = styled(StandardContainer)`
   background-color: ${color.transparent};
   display: flex;
   margin: auto;
-  padding: 0 1rem;
+  padding: 0;
   ${mediaQuery.medium`
-    padding: 0.5rem 0;
+    padding: 0.5rem 2rem;
   `}
   ${mediaQuery.large`
-    padding: 1.5rem 0;
+    padding: 1.5rem 0rem;
+  `}
+  ${mediaQuery.extraLarge`
+    padding-left: 0;
+    padding-right: 0;
   `}
 `;
 
@@ -165,7 +169,7 @@ const LogoLink = styled(NavLink)<{textColor: string}>`
   font-family: '${fontFamily.special}';
   text-align: left;
   margin-right: auto;
-  padding: 1rem 0rem 1rem 1rem;
+  padding: 1rem;
   color: ${p => p.textColor};
   line-height: 2rem;
 

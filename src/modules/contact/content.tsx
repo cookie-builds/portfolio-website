@@ -87,7 +87,7 @@ const Content = () => {
       );
       toast.success('The notification has been sent out! I will contact you very soon. Thanks');
     } catch(e) {
-      toast.error('Woops, something went wrong. Please contact me directly at jonathan.couck@outlook.com!');
+      toast.error('Woops, something went wrong. Please contact me directly at jonathan.couck@outlook.com');
     }
   };
   return (

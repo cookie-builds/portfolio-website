@@ -44,8 +44,17 @@ const WhatWeDo = styled.div`
   flex-direction: column;
   margin: 0 auto;
   padding: 2rem;
-  min-width: 12rem;
-  border-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  min-width: 100%;
+  ${mediaQuery.small`
+    min-width: 22rem;
+    max-width: unset;
+  `}
+  ${mediaQuery.medium`
+    min-width: 22rem;
+    max-width: 34rem;
+  `}
 `;
 
 const WhatWeUse = styled.div`
@@ -56,8 +65,9 @@ const WhatWeUse = styled.div`
   padding: 2rem;
   gap: 1rem;
   width: calc(100%-4rem);
-  border-radius: 1rem;
   justify-content: space-between;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 
   ${mediaQuery.medium`
     flex-direction: row;
