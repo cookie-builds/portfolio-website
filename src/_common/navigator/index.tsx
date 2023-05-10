@@ -228,6 +228,8 @@ const Navigator = () => {
     }
   }, []);
 
+  React.useEffect(() => setSelectedLink(location.pathname.substring(1)), [location]);
+
   React.useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
