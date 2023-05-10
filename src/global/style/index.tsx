@@ -83,19 +83,19 @@ export const textSize = {
   subtitle: () => css`
     font-weight: ${fontWeight.medium};
     line-height: 1;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
 
     ${mediaQuery.small`
-      font-size: 1.5rem;
+      font-size: 1.75rem;
     `}
     ${mediaQuery.medium`
-      font-size: 1.5rem;
+      font-size: 1.75rem;
     `}
     ${mediaQuery.large`
-      font-size: 1.75rem;
+      font-size: 2rem;
     `}
     ${mediaQuery.extraLarge`
-      font-size: 1.75rem;
+      font-size: 2rem;
     `}
   `,
   title: () => css`
@@ -135,7 +135,7 @@ export const textSize = {
   `,
 };
 
-export const fontFamily = { regular: 'Roboto', special: 'Roboto Mono' };
+export const fontFamily = { regular: 'Gotham', special: 'Roboto Mono' };
 
 export const spacing = { xs: 0.25, sm: 0.5, md: 1, lg: 1.5, xl: 2, xxl: 4, huge: 8 };
 

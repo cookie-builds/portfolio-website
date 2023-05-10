@@ -37,8 +37,8 @@ const LogoLinks = styled.div`
 const EmailLink = styled.a`
   color: ${color.darkGray};
   font-weight: ${fontWeight.medium};
-  top: -110%;
-  left: -5.5rem;
+  top: -170%;
+  left: -6.3rem;
   position: absolute;
   transform: rotate(90deg);
   width: min-content;
@@ -46,7 +46,7 @@ const EmailLink = styled.a`
   transition: 0.1s;
 
   &:hover {
-    transform: scale(1.05) rotate(90deg) translateX(-0.4rem) ;
+    transform: scale(1.05) rotate(90deg) translate(-0.5rem, -0.02rem) ;
   }
 `;
 
@@ -62,7 +62,7 @@ const IconLink = styled.a`
 
 const Line = styled.div`
   width: 2px;
-  height: 7.5rem;
+  height: 5rem;
   background-color: ${color.darkGray};
   margin: 0 1rem;
 `;
@@ -92,6 +92,7 @@ export const MobileLinks = () => {
 const FooterDiv = styled.footer`
   position: relative;
   padding-bottom: 5rem;
+  margin-top: 2rem;
   flex-grow: 1;
   display: flex;
 `;
@@ -107,6 +108,7 @@ const StyledContainer = styled(StandardContainer)`
   width: 70%;
   ${mediaQuery.large`
     width: 50rem;
+    padding: 0;
   `}
 `;
 
@@ -115,12 +117,14 @@ const StyledSection = styled(StandardSection)`
 `;
 
 const FooterText = styled.p`
-  ${textSize.title}
+  ${textSize.subtitle}
+  font-weight: ${fontWeight.bold};
   ${mediaQuery.medium`
-    ${textSize.huge}
+    font-size: 2.75rem;
   `}
   text-align: left;
   color: ${color.darkGray};
+
 `;
 
 const ContactUs = styled(Link)`
@@ -159,22 +163,21 @@ const Copyright = styled.div`
 const Footer = () => {
   const { pathname } = useLocation();
 
+  if (pathname.includes('contact'))
+    return (null);
+
   return (
     <>
-      {!pathname.includes('contact') &&
-      <>
-        <FooterDiv>
-          <StyledContainer>
-            <StyledSection>
-              <FooterText>Questions or think I have what it takes to create your website?</FooterText>
-              <ContactUs to='/contact'>Get in touch <u>here</u>&nbsp;→</ContactUs>
-            </StyledSection>
-          </StyledContainer>
-          <Copyright>© CookieBuilds 2022</Copyright>
-        </FooterDiv>
-        <MobileLinks />
-      </> 
-      }
+      <FooterDiv>
+        <StyledContainer>
+          <StyledSection>
+            <FooterText>Questions or think I have what it takes to create your website?</FooterText>
+            <ContactUs to='/contact'>Get in touch <u>here</u>&nbsp;→</ContactUs>
+          </StyledSection>
+        </StyledContainer>
+        <Copyright>© CookieBuilds 2022</Copyright>
+      </FooterDiv>
+      <MobileLinks />
     </>
   );
 };

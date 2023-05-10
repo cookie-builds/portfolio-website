@@ -114,16 +114,12 @@ const NavLink = styled(Link)<{active?: string, textColor: string}>`
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%) translateY(-0.5rem);
+    transform: translateX(-50%);
     width: ${p => p.active ? '100%' : '0'};
     height: 4px;
     border-radius: 1px;
     background-color: ${color.primary};
     transition: width 0.1s;
-
-    ${mediaQuery.large`
-      transform: translateX(-50%) translateY(0.5rem);
-    `}
   }
   &:hover {
     &:before {
@@ -155,7 +151,7 @@ const NavigationBar = styled(StandardContainer)`
   margin: auto;
   padding: 0;
   ${mediaQuery.medium`
-    padding: 0.5rem 2rem;
+    padding: 1rem 2rem;
   `}
   ${mediaQuery.large`
     padding: 1.5rem 0rem;

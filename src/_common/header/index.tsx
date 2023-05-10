@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import DarkLogo from '-!svg-react-loader!../../global/img/Dark.svg';
 
-import { color, fontWeight, mediaQuery, textSize } from '../../global/style';
+import { color, fontWeight, mediaQuery, screenSize, textSize } from '../../global/style';
 import { StandardContainer } from '../components/standard';
 
 type HeaderProps = {
@@ -35,9 +35,9 @@ const HeaderContainer = styled(StandardContainer)<{hasProps?: string}>`
   margin-top: ${p => p.hasProps ? '8rem' : '4rem'};
   padding-top: 0;
   padding-bottom: 0;
-  ${mediaQuery.large`
+  @media only screen and (min-width: ${screenSize.large}) {
     margin-top: ${(p: any) => p.hasProps ? '12rem' : '4rem'};
-  `}
+  }
 `;
 
 const Title = styled.div`

@@ -18,6 +18,10 @@ const ProjectInner = styled.div`
   gap: 1rem;
 
   ${mediaQuery.large`
+    grid-template-columns: 50% 50%;
+  `}
+
+  ${mediaQuery.extraLarge`
     grid-template-columns: 60% 40%;
   `}
 `;
@@ -62,8 +66,8 @@ const StyledTag = styled.div`
 const ImageWrapper = styled.div`
   width: 100%;
   height: 100%;
-  max-height: 12rem;
-  max-width: 20rem;
+  max-height: 16rem;
+  max-width: 25rem;
   grid-row: span 3;
   margin: 0 auto;
   ${mediaQuery.large`
