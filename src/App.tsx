@@ -48,7 +48,7 @@ function App (): JSX.Element {
   React.useEffect(() => {
     WebFont.load({
       google: {
-        families: ['Gotham', 'Roboto Mono'],
+        families: ['Roboto Mono'],
       },
     });
     console.log('here');
