@@ -176,7 +176,7 @@ const Footer = () => {
             <ContactUs to='/contact'>Get in touch <u>here</u>&nbsp;→</ContactUs>
           </StyledSection>
         </StyledContainer>
-        <Copyright>© CookieBuilds 2022</Copyright>
+        <Copyright>© CookieBuilds {new Date().getFullYear()}</Copyright>
       </FooterDiv>
       <MobileLinks />
     </>
