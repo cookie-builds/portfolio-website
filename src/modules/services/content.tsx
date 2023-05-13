@@ -44,6 +44,7 @@ const WhatWeDo = styled.div`
   flex-direction: column;
   margin: 0 auto;
   padding: 2rem;
+  gap: 1rem;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   min-width: 100%;
@@ -94,6 +95,12 @@ const TitleWWU = styled(Title)`
   `}
 `;
 
+const TextDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
 const TextWWU = styled.p`
   text-align: left;
 `;
@@ -131,24 +138,24 @@ const Content = () => {
       </FlexWhatWeDo>
       <FlexWhatWeUse>
         <WhatWeUse style={{ background: 'linear-gradient(90deg, rgba(102,102,102,1) 0%, rgba(34,34,34,1) 100%)' }}>
-          <div>
+          <TextDiv>
             <TitleWWU>Front-end</TitleWWU>
             <TextWWU>
               For front-end purposes, CookieBuilds uses React (and React Native) or Blazor for web applications to create user-friendly and engaging websites or applications.
             </TextWWU>
-          </div>
+          </TextDiv>
           <Logos>
             <FaReact color={color.primary} size='6rem' />
             <SiBlazor color='#562b88' size='6rem' />
           </Logos>
         </WhatWeUse>
         <WhatWeUse style={{ background: 'linear-gradient(90deg, rgba(102,102,102,1) 0%, rgba(34,34,34,1) 100%)' }}>
-          <div>
+          <TextDiv>
             <TitleWWU>Back-end</TitleWWU>
             <TextWWU>
               As a developer, I specialize in using NodeJS for backend purposes. With its flexibility and scalability, I am able to create fast and dynamic web applications that meet the needs of my clients and their users.
             </TextWWU>
-          </div>
+          </TextDiv>
           <Logos>
             <FaNodeJs color='#8ecd00' size='6rem' />
             <SiDotnet color='#562b88' size='6rem' />
