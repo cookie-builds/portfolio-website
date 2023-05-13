@@ -44,7 +44,7 @@ const WhatWeDo = styled.div`
   flex-direction: column;
   margin: 0 auto;
   padding: 2rem;
-  gap: 1rem;
+  gap: 2rem;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   min-width: 100%;
@@ -64,7 +64,7 @@ const WhatWeUse = styled.div`
   flex-direction: column;
   margin: 0;
   padding: 2rem;
-  gap: 1rem;
+  gap: 2rem;
   width: calc(100%-4rem);
   justify-content: space-between;
   border-top-left-radius: 1rem;
@@ -98,10 +98,10 @@ const TitleWWU = styled(Title)`
 const TextDiv = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 `;
 
-const TextWWU = styled.p`
+const TextWWU = styled(Text)`
   text-align: left;
 `;
 

@@ -65,19 +65,19 @@ export const fontWeight = {
 export const textSize = {
   p: () => css`
     font-weight: ${fontWeight.book};
-    font-size: 1rem;
+    font-size: 1.125rem;
     
     ${mediaQuery.small`
-      font-size: 1.0625rem;
+      font-size: 1.125rem;
     `}
     ${mediaQuery.medium`
-      font-size: 1.0625rem;
+      font-size: 1.125rem;
     `}
     ${mediaQuery.large`
-      font-size: 1.125rem;
+      font-size: 1.25rem;
     `}
     ${mediaQuery.extraLarge`
-      font-size: 1.125rem;
+      font-size: 1.25rem;
     `}
   `,
   subtitle: () => css`
@@ -92,10 +92,10 @@ export const textSize = {
       font-size: 1.75rem;
     `}
     ${mediaQuery.large`
-      font-size: 2rem;
+      font-size: 1.875rem;
     `}
     ${mediaQuery.extraLarge`
-      font-size: 2rem;
+      font-size: 1.875rem;
     `}
   `,
   title: () => css`
@@ -118,19 +118,19 @@ export const textSize = {
   huge: () => css`
     font-weight: ${fontWeight.black};
     line-height: 1;
-    font-size: 2.5rem;
+    font-size: 2.25rem;
 
     ${mediaQuery.small`
-      font-size: 2.75rem;
+      font-size: 3rem;
     `}
     ${mediaQuery.medium`
-      font-size: 2.75rem;
+      font-size: 3rem;
     `}
     ${mediaQuery.large`
-      font-size: 3rem;
+      font-size: 2.625rem;
     `}
     ${mediaQuery.extraLarge`
-      font-size: 3rem;
+      font-size: 3.5rem;
     `}
   `,
 };

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { StandardContainer, StandardSection } from '../../_common/components/standard';
 import { color, fontWeight, mediaQuery, textSize } from '../../global/style';
+import projects, { ProjectProps } from './projects';
 
 const ProjectContainer = styled.div`
   width: 100%;
@@ -88,13 +89,6 @@ const Image = styled.img`
   border: 2px solid ${color.primary};
 `;
 
-type ProjectProps = {
-  title: string,
-  description: string,
-  tags: Tag[],
-  image: string,
-};
-
 const Project = ({ title, description, tags, image }: ProjectProps): JSX.Element => {
   return (
     <ProjectContainer style={{ background: 'linear-gradient(-90deg, rgba(102,102,102,1) 0%, rgba(34,34,34,1) 100%)' }}>
@@ -120,31 +114,7 @@ const StyledSection = styled(StandardSection)`
   align-items: center;
 `;
 
-type Tag = 'Front-end' | 'Back-end' | 'Blazor' | 'React' | 'NodeJS' | '.Net';
-
 const Content = () => {
-  const projects: ProjectProps[] = [
-    {
-      'title': 'Mercurius Aalst',
-      'description': 'I designed and created the website for the student association of Mercurius Aalst. This is a static website created in Blazor. This website was created because I am the current Webmaster for the association and their previous one needed a serious overhaul.',
-      'tags': ['Front-end', 'Blazor'],
-      'image': 'https://imgur.com/SbJXaUm.jpg',
-    },
-    {
-      'title': 'Poker Tracker',
-      'description': 'A web application to make tracking poker results easier. Created as a school project, with front-end in React and back-end in NodeJS. This is not live anymore, but do please check out the code if you’re interested.',
-      'tags': ['Front-end', 'Back-end', 'React', 'NodeJS'],
-      'image': 'https://imgur.com/I8lukzH.jpg',
-    },
-    {
-      'title': 'Squads reservation tool',
-      'description': 'A reservation tool made for a local fitness in Aalst. Designed and created for a school project, made in .Net. This is not live anymore, but do please check out the code if you’re interested.',
-      'tags': ['Front-end', 'Back-end', 'Blazor', '.Net'],
-      'image': 'https://imgur.com/JIrPt2i.jpg',
-    },
-  ];
-
-  ;
   return (
     <StandardContainer>
       <StyledSection>

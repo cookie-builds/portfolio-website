@@ -18,7 +18,7 @@ const StyledSection = styled(StandardSection)`
 `;
 
 const Title = styled.div`
-  ${textSize.title}
+  ${textSize.huge}
 `;
 
 const TextBlock = styled.div`
