@@ -12,9 +12,13 @@ type HeaderProps = {
 };
 
 const Logo = styled(DarkLogo)`
-  margin: 0 auto;
+  margin: 1rem auto 0 auto;
   max-height: 15rem;
   max-width: 90%;
+
+  ${mediaQuery.medium`
+    margin-top: 2rem;
+  `}
 
   ${mediaQuery.large`
     max-height: 17.5rem;
