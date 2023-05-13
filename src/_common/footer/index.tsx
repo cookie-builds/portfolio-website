@@ -135,6 +135,7 @@ const ContactUs = styled(Link)`
   `}
   color: ${color.darkGray};
   font-weight: ${fontWeight.book};
+  margin-top: 2rem;
   &:hover {
     color: ${color.primary};
     font-weight: 600;
