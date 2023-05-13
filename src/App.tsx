@@ -52,7 +52,6 @@ function App (): JSX.Element {
         families: ['Roboto Mono'],
       },
     });
-    console.log('here');
   });
 
   return (

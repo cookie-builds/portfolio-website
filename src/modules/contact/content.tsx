@@ -8,6 +8,8 @@ import styled, { keyframes } from 'styled-components';
 import { StandardContainer, StandardSection } from '../../_common/components/standard';
 import { color, fontWeight, mediaQuery, textSize } from '../../global/style';
 
+const { REACT_APP_EMAIL_SERVICE, REACT_APP_EMAIL_TEMPLATE, REACT_APP_EMAIL_PUBLIC_KEY } = process.env;
+
 const StyledContainer = styled(StandardContainer)`
   display: flex;
   flex-direction: column;
@@ -98,6 +100,7 @@ const OtherLink = styled.a`
 `;
 
 const OtherContact = styled.div`
+  ${textSize.p}
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -113,12 +116,16 @@ const Content = () => {
   const { register, formState: { errors, isSubmitting }, handleSubmit } = useForm();
   const onSubmit = async (data: any) => {
     try {
-      await emailjs.send(
-        'service_mif6kp5',
-        'template_zl9ivuq',
-        data,
-        'zS105_6YutEc5OvSu'
-      );
+      if (process.env.REACT_APP_EMAIL_SERVICE && process.env.REACT_APP_EMAIL_TEMPLATE && process.env.REACT_APP_EMAIL_PUBLIC_KEY) {
+        await emailjs.send(
+          process.env.REACT_APP_EMAIL_SERVICE, 
+          process.env.REACT_APP_EMAIL_TEMPLATE,
+          data,
+          process.env.REACT_APP_EMAIL_PUBLIC_KEY
+        );
+      } else {
+        throw new Error();
+      }
       toast.success('The notification has been sent out! I will contact you very soon. Thanks');
     } catch(e) {
       toast.error('Woops, something went wrong. Please contact me directly at jonathan.couck@outlook.com');
